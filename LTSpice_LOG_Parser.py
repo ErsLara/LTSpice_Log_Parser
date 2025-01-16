@@ -20,4 +20,8 @@ for signal, value in meas_results:
     elif value:
         meas_dict[signal_name].append(float(value))
 
-print(meas_dict)
+meas_results_df = pd.DataFrame(meas_dict)
+
+overview = meas_results_df.describe(percentiles=[])
+overview = overview.drop("50%")
+
