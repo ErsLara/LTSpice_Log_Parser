@@ -1,13 +1,15 @@
 import re
 import pandas as pd
 
-LTSpiceLOG = open(".\\LTSpice_Example\\LTSPICE_Example.log", "rt")
+log_file_name = ".\\LTSpice_Example\\LTSPICE_Example.log"
+
+LTSpiceLOG = open(log_file_name, "rt")
 
 log_content = LTSpiceLOG.read()
 
 LTSpiceLOG.close()
 
-pattern = re.compile(r"^Measurement:\s(.+)|^\s+\d+\s(\d+\.?\d+)", re.MULTILINE)
+pattern = re.compile(r"^Measurement:\s(.+)|^\s+\d+\s(-?\d+\.?\d+)", re.MULTILINE)
 
 meas_results = pattern.findall(log_content)
 
@@ -25,3 +27,8 @@ meas_results_df = pd.DataFrame(meas_dict)
 overview = meas_results_df.describe(percentiles=[])
 overview = overview.drop("50%")
 
+output_file_name = log_file_name.replace(".log", "_meas_overview.txt")
+
+output_file = open(output_file_name, "w")
+output_file.write(str(overview))
+output_file.close()
