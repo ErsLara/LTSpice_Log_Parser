@@ -1,7 +1,7 @@
 import re
 import pandas as pd
 
-log_file_name = ".\\LTSpice_Example\\LTSPICE_Example.log"
+log_file_name = r".\LTSpice_Example\LTSPICE_Example.log"
 
 LTSpiceLOG = open(log_file_name, "rt")
 
@@ -24,7 +24,8 @@ for signal, value in meas_results:
 
 meas_results_df = pd.DataFrame(meas_dict)
 
-overview = meas_results_df.describe(percentiles=[])
+pd.set_option('display.max_columns', None)
+overview = meas_results_df.describe(percentiles=[], include='all')
 overview = overview.drop("50%")
 
 output_file_name = log_file_name.replace(".log", "_meas_overview.txt")
