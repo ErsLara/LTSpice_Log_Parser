@@ -9,7 +9,7 @@ log_content = LTSpiceLOG.read()
 
 LTSpiceLOG.close()
 
-pattern = re.compile(r"^Measurement:\s(.+)|^\s+\d+\s(-?\d+\.*\d*)", re.MULTILINE)
+pattern = re.compile(r"^Measurement:\s(.+)|^\s+\d+\s(-?\d*\.*\d*e?-?\d+)", re.MULTILINE)
 
 meas_results = pattern.findall(log_content)
 
