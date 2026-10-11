@@ -175,3 +175,6 @@ LTSpice_LOG_Parser.exe
 
 #LTSPICE Example at root folder
 /LTSPICE_Example*
+
+#the test .png
+/*.png
