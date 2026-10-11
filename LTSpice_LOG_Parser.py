@@ -28,7 +28,10 @@ for log_file_name in log_files:
     
     pd.set_option('display.max_columns', None)
     overview = meas_results_df.describe(percentiles=[], include='all')
-    overview = overview.drop("50%")
+
+    # CORRECAO: Remove o "50%" apenas se ele realmente existir no indice
+    if "50%" in overview.index:
+        overview = overview.drop("50%")
     
     output_file_name = log_file_name.replace(".log", "_meas_overview.txt")
     

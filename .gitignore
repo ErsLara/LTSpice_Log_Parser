@@ -169,3 +169,9 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+#Log parser exe
+LTSpice_LOG_Parser.exe
+
+#LTSPICE Example at root folder
+/LTSPICE_Example.*
