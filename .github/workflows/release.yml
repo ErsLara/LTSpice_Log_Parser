@@ -30,7 +30,7 @@ jobs:
       - name: Build with PyInstaller
         run: |
           # Replace 'seu_script.py' with your actual Python script filename
-          pyinstaller --onefile --name LTSpice_LOG_Parser --collect-all pandas --collect-all matplotlib --collect-all seaborn seu_script.py
+          pyinstaller --onefile --name LTSpice_LOG_Parser --collect-all pandas --collect-all matplotlib --collect-all seaborn LTSpice_LOG_Parser.py
 
       - name: Create GitHub Release and Upload Asset
         uses: softprops/action-gh-release@v2
