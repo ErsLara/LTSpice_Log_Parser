@@ -174,4 +174,4 @@ cython_debug/
 LTSpice_LOG_Parser.exe
 
 #LTSPICE Example at root folder
-/LTSPICE_Example.*
+/LTSPICE_Example*
